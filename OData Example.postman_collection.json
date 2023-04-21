@@ -426,6 +426,23 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/Store",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/Store",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Store"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [

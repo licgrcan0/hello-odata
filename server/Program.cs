@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 var modelBuilder = new ODataConventionModelBuilder();
 var orderEntityType = modelBuilder.EntityType<Order>();
 var customerEntityType = modelBuilder.EntitySet<Customer>("Customers");
+var storeEntityType = modelBuilder.Singleton<Store>("Store");
 
 customerEntityType.EntityType.Collection.Function("GetVIPs")
     .ReturnsCollectionFromEntitySet<Customer>("Customers");
