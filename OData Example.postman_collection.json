@@ -282,6 +282,113 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/Customers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\": 3,\r\n    \"Name\": \"Luc\",\r\n    \"CustomerType\": \"Retail\",\r\n    \"Status\": \"PREMIUM\",\r\n    \"CreditLimit\": 2300,\r\n    \"CreatedAt\": \"2022-10-01\",\r\n    \"Orders\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/Customers",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers/2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\": 2,\r\n    \"Name\": \"Joe\",\r\n    \"CustomerType\": \"Retail\",\r\n    \"CreditLimit\": 0,\r\n    \"CreatedAt\": \"2022-04-27\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/Customers/2",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers/2",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"CreditLimit\": 1300,\r\n    \"CreatedAt\": \"2022-01-26\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/Customers/2",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"CreditLimit\": 1300,\r\n    \"CreatedAt\": \"2022-01-26\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/Customers/2",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers",
+						"2"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [

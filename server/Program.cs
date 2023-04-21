@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.OData;
 using Microsoft.AspNetCore.OData.Batch;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OData.ModelBuilder;
+using server.Data;
 using server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +23,9 @@ builder.Services.AddControllers().AddOData(
         .AddRouteComponents("odata/v1", edmModel, new DefaultODataBatchHandler())
         .AddRouteComponents("odata", edmModel, new DefaultODataBatchHandler()));
 
+builder.Services.AddDbContext<BasicCrudDbContext>(options => 
+    options.UseInMemoryDatabase("BasicCrudDb"));
+
 var app = builder.Build();
 
 // Enable batching of odata operations/jobs as a single request
@@ -29,5 +34,12 @@ app.UseODataBatching();
 
 app.UseRouting();
 app.UseEndpoints(endpoints => endpoints.MapControllers());
+
+// Seed database
+using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+{
+    var db = serviceScope.ServiceProvider.GetRequiredService<BasicCrudDbContext>();
+    BasicCrudDbHelper.SeedDb(db);
+}
 
 app.Run();
