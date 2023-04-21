@@ -8,8 +8,14 @@ using server.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 var modelBuilder = new ODataConventionModelBuilder();
-modelBuilder.EntityType<Order>();
-modelBuilder.EntitySet<Customer>("Customers");
+var orderEntityType = modelBuilder.EntityType<Order>();
+var customerEntityType = modelBuilder.EntitySet<Customer>("Customers");
+
+customerEntityType.EntityType.Collection.Function("GetVIPs")
+    .ReturnsCollectionFromEntitySet<Customer>("Customers");
+customerEntityType.EntityType.Function("IsRetail")
+    .Returns<bool>();
+
 var edmModel = modelBuilder.GetEdmModel();
 builder.Services.AddControllers().AddOData(
     options => options

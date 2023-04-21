@@ -389,6 +389,43 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/Customers/GetVIPs()",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/Customers/GetVIPs()",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers",
+						"GetVIPs()"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers/1/IsRetail()",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/Customers/1/IsRetail()",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers",
+						"1",
+						"IsRetail()"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [

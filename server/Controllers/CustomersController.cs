@@ -16,6 +16,32 @@ public class CustomersController: ODataController
         this.db = db;
     }
 
+    [HttpGet]
+    public ActionResult<bool> IsRetail([FromRoute] int key)
+    {
+        var item = db.Customers.SingleOrDefault(d => d.Id.Equals(key));
+    
+        if (item == null)
+        {
+            return NotFound();
+        }
+    
+        return Ok(item.CustomerType == CustomerType.Retail);
+    }
+
+    [HttpGet]
+    public ActionResult<IEnumerable<Customer>> GetVIPs()
+    {
+        var items = db.Customers.Where(c => c.CustomerType == CustomerType.Retail &&
+                                c.Status == "PREMIUM");
+        if (!items.Any())
+        {
+            return NoContent();
+        }
+        
+        return Ok(items);
+    }
+
     [EnableQuery]
     public ActionResult<IEnumerable<Customer>> Get()
     {
