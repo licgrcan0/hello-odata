@@ -1,0 +1,314 @@
+{
+	"info": {
+		"_postman_id": "905e8a58-26b5-4012-95f8-eaf2b7b37d04",
+		"name": "OData Example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1359530"
+	},
+	"item": [
+		{
+			"name": "/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}",
+					"host": [
+						"{{BASE_URL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/$metadata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/$metadata",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"$metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/Customers",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers/$count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/Customers/$count",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers",
+						"$count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers(1)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/Customers(1)",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers(1)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/Customers/1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers?$filter=Id eq 1 or Id eq 3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/Customers?$filter=Id eq 1 or Id eq 3",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers"
+					],
+					"query": [
+						{
+							"key": "$filter",
+							"value": "Id eq 1 or Id eq 3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers?$orderby=Id desc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/Customers?$orderby=Id desc",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers"
+					],
+					"query": [
+						{
+							"key": "$orderby",
+							"value": "Id desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers(2)?$expand=Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/Customers(2)?$expand=Orders",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers(2)"
+					],
+					"query": [
+						{
+							"key": "$expand",
+							"value": "Orders"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers?$select=Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/Customers?$select=Name",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers"
+					],
+					"query": [
+						{
+							"key": "$select",
+							"value": "Name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers?$orderby=Id desc&$expand=Orders&$top=2&select=Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/Customers?$orderby=Id desc&$expand=Orders&$top=2&select=Name",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers"
+					],
+					"query": [
+						{
+							"key": "$orderby",
+							"value": "Id desc"
+						},
+						{
+							"key": "$expand",
+							"value": "Orders"
+						},
+						{
+							"key": "$top",
+							"value": "2"
+						},
+						{
+							"key": "select",
+							"value": "Name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Customers?$apply=groupby((Status), aggregate($count as Count))",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/Customers?$apply=groupby((Status), aggregate($count as Count))",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"Customers"
+					],
+					"query": [
+						{
+							"key": "$apply",
+							"value": "groupby((Status), aggregate($count as Count))"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/$batch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requests\": [\r\n        {\r\n            \"method\": \"GET\",\r\n            \"url\": \"http://localhost:5150/odata/Customers/1\",\r\n            \"id\": \"r1\"\r\n        },\r\n        {\r\n            \"method\": \"GET\",\r\n            \"url\": \"http://localhost:5150/odata/Customers/1?$select=FirstName&$top=2\",\r\n            \"id\": \"r2\"\r\n        },\r\n        {\r\n            \"method\": \"PATCH\",\r\n            \"url\": \"http://localhost:5150/odata/v1/Customers/3\",\r\n            \"id\": \"r3\",\r\n            \"headers\": {\r\n                \"content-type\": \"application/json\"\r\n            },\r\n            \"body\": {\r\n                \"Name\": \"Billy\"\r\n            }\r\n        }\r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/$batch",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"$batch"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "localhost:5150/odata",
+			"type": "string"
+		}
+	]
+}

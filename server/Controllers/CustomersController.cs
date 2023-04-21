@@ -13,6 +13,7 @@ public class CustomersController: ODataController
         {
             Id = idx,
             Name = $"Customer {idx}",
+            Status = idx == 1 ? "PREMIUM" : "NORMAL",
             Orders = new List<Order>(
                 Enumerable.Range(1, 2).Select(dx => new Order
                 {
